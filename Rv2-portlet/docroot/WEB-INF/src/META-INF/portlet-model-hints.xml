@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="tsg.model.Flat">
+		<field name="flatId" type="long" />
+		<field name="tsgId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="houseId" type="long" />
+		<field name="ownersCnt" type="long" />
+		<field name="tenantsCnt" type="long" />
+		<field name="spaceCommon" type="int" />
+		<field name="spaceLiving" type="int" />
+		<field name="roomCnt" type="int" />
+		<field name="floor" type="int" />
+		<field name="number" type="String" />
+		<field name="addressId" type="long" />
+	</model>
+	<model name="tsg.model.FlatOwner">
+		<field name="id" type="long" />
+		<field name="ownerId" type="long" />
+		<field name="tsgId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="flatId" type="long" />
+		<field name="fromDate" type="Date" />
+		<field name="toDate" type="Date" />
+		<field name="percent" type="int" />
+		<field name="area" type="int" />
+		<field name="shared" type="boolean" />
+	</model>
+	<model name="tsg.model.FlatTenant">
+		<field name="id" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="tenantId" type="long" />
+		<field name="flatId" type="long" />
+		<field name="tsgId" type="long" />
+		<field name="fromDate" type="Date" />
+		<field name="toDate" type="Date" />
+	</model>
+</model-hints>

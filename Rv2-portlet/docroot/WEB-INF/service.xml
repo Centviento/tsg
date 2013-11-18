@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.1.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_1_0.dtd">
+<service-builder package-path="tsg">
+	<author>Whitemonk</author>
+	<namespace>tsg</namespace>
+
+	<entity name="Flat" local-service="true" remote-service="false">
+
+		<!-- PK fields -->
+		<column name="flatId" type="long" primary="true" />
+		<column name="tsgId" type="long"></column>
+		
+		<!-- Audit fields -->
+      	<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+        <column name="houseId" type="long"></column>
+        <column name="ownersCnt" type="long"></column>
+        <column name="tenantsCnt" type="long"></column>
+        <column name="spaceCommon" type="int"></column>
+        <column name="spaceLiving" type="int"></column>
+        <column name="roomCnt" type="int"></column>
+        <column name="floor" type="int"></column>
+        <column name="number" type="String"></column>
+        <column name="addressId" type="long"></column>
+        <order by="asc">
+            <order-column name="flatId" order-by="asc"></order-column>
+        </order>
+        <finder name="tsgId" return-type="Collection">
+            <finder-column name="tsgId"></finder-column>
+        </finder>
+        <finder name="houseid" return-type="Collection">
+            <finder-column name="houseId"></finder-column>
+        </finder>
+        <finder name="addressId" return-type="Collection">
+            <finder-column name="addressId"></finder-column>
+        </finder>
+         <finder name="roomCnt" return-type="Collection">
+            <finder-column name="roomCnt"></finder-column>
+        </finder>
+		</entity>
+    <entity name="FlatOwner" local-service="true" remote-service="false">
+        <column name="id" type="long" primary="true"></column>
+    
+        <column name="ownerId" type="long" primary="false"></column>
+        <column name="tsgId" type="long"></column>
+        <!-- Audit fields -->
+      	<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+      
+        <column name="flatId" type="long"></column>
+        <column name="fromDate" type="Date"></column>
+        <column name="toDate" type="Date"></column>
+        <column name="percent" type="int"></column>
+        <column name="area" type="int"></column>
+        <column name="shared" type="boolean"></column>
+        <finder name="owner" return-type="Collection">
+            <finder-column name="ownerId"></finder-column>
+        </finder>
+        <finder name="ownerTsg" return-type="Collection">
+            <finder-column name="tsgId"></finder-column>
+            <finder-column name="ownerId"></finder-column>
+        </finder>
+    </entity>
+    <entity name="FlatTenant" local-service="true" remote-service="false">
+    	<!-- Audit fields -->
+        <column name="id" type="long" primary="true"></column>
+    	<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+        
+        <column name="tenantId" type="long" primary="false"></column>
+        <column name="flatId" type="long"></column>
+        <column name="tsgId" type="long"></column>
+        <column name="fromDate" type="Date"></column>
+        <column name="toDate" type="Date"></column>
+        <finder name="flatId" return-type="Collection">
+            <finder-column name="flatId"></finder-column>
+        </finder>
+        <finder name="tenant" return-type="Collection">
+            <finder-column name="tenantId"></finder-column>
+        </finder>
+        <finder name="tenantTsg" return-type="Collection">
+            <finder-column name="tenantId"></finder-column>
+            <finder-column name="tsgId"></finder-column>
+        </finder>
+    </entity>
+</service-builder>

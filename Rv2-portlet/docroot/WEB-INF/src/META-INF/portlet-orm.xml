@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd">
+	<persistence-unit-metadata>
+		<xml-mapping-metadata-complete/>
+		<persistence-unit-defaults>
+			<access>PROPERTY</access>
+		</persistence-unit-defaults>
+	</persistence-unit-metadata>
+	<mapped-superclass class="tsg.model.impl.FlatModelImpl">
+		<attributes>
+			<id name="flatId" />
+			<basic name="tsgId" />
+			<basic name="companyId" />
+			<basic name="userId" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="houseId" />
+			<basic name="ownersCnt" />
+			<basic name="tenantsCnt" />
+			<basic name="spaceCommon" />
+			<basic name="spaceLiving" />
+			<basic name="roomCnt" />
+			<basic name="floor" />
+			<basic name="number">
+				<column name="NUMBER_" />
+			</basic>
+			<basic name="addressId" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="tsg.model.impl.FlatOwnerModelImpl">
+		<attributes>
+			<id name="id">
+				<column name="ID_" />
+			</id>
+			<basic name="ownerId" />
+			<basic name="tsgId" />
+			<basic name="companyId" />
+			<basic name="userId" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="flatId" />
+			<basic name="fromDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="toDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="percent" />
+			<basic name="area" />
+			<basic name="shared" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="tsg.model.impl.FlatTenantModelImpl">
+		<attributes>
+			<id name="id">
+				<column name="ID_" />
+			</id>
+			<basic name="companyId" />
+			<basic name="userId" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="tenantId" />
+			<basic name="flatId" />
+			<basic name="tsgId" />
+			<basic name="fromDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="toDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<entity class="tsg.model.impl.FlatImpl" name="Flat">
+		<table name="tsg_Flat" />
+		<attributes />
+	</entity>
+	<entity class="tsg.model.impl.FlatOwnerImpl" name="FlatOwner">
+		<table name="tsg_FlatOwner" />
+		<attributes />
+	</entity>
+	<entity class="tsg.model.impl.FlatTenantImpl" name="FlatTenant">
+		<table name="tsg_FlatTenant" />
+		<attributes />
+	</entity>
+</entity-mappings>

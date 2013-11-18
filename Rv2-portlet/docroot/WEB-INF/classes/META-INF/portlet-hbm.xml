@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false" auto-import="false">
+	<import class="tsg.model.Flat" />
+	<import class="tsg.model.FlatOwner" />
+	<import class="tsg.model.FlatTenant" />
+	<class name="tsg.model.impl.FlatImpl" table="tsg_Flat">
+		<cache usage="read-write" />
+		<id name="flatId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="tsgId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="houseId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="ownersCnt" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="tenantsCnt" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="spaceCommon" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="spaceLiving" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="roomCnt" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="floor" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="number" type="com.liferay.portal.dao.orm.hibernate.StringType" column="number_" />
+		<property name="addressId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+	</class>
+	<class name="tsg.model.impl.FlatOwnerImpl" table="tsg_FlatOwner">
+		<cache usage="read-write" />
+		<id name="id" column="id_" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="ownerId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="tsgId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="flatId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="fromDate" type="org.hibernate.type.TimestampType" />
+		<property name="toDate" type="org.hibernate.type.TimestampType" />
+		<property name="percent" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="area" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="shared" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+	</class>
+	<class name="tsg.model.impl.FlatTenantImpl" table="tsg_FlatTenant">
+		<cache usage="read-write" />
+		<id name="id" column="id_" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="tenantId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="flatId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="tsgId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="fromDate" type="org.hibernate.type.TimestampType" />
+		<property name="toDate" type="org.hibernate.type.TimestampType" />
+	</class>
+</hibernate-mapping>

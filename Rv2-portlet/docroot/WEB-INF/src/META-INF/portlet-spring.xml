@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="tsg.service.FlatLocalService" class="tsg.service.impl.FlatLocalServiceImpl" />
+	<bean id="tsg.service.persistence.FlatPersistence" class="tsg.service.persistence.FlatPersistenceImpl" parent="basePersistence" />
+	<bean id="tsg.service.FlatOwnerLocalService" class="tsg.service.impl.FlatOwnerLocalServiceImpl" />
+	<bean id="tsg.service.persistence.FlatOwnerPersistence" class="tsg.service.persistence.FlatOwnerPersistenceImpl" parent="basePersistence" />
+	<bean id="tsg.service.FlatTenantLocalService" class="tsg.service.impl.FlatTenantLocalServiceImpl" />
+	<bean id="tsg.service.persistence.FlatTenantPersistence" class="tsg.service.persistence.FlatTenantPersistenceImpl" parent="basePersistence" />
+</beans>
